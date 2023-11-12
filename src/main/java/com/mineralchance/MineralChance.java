@@ -5,7 +5,7 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.loot.v1.FabricLootPoolBuilder;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.minecraft.item.Items;
-import net.minecraft.loot.BinomialLootTableRange;
+import net.minecraft.loot.provider.number.BinomialLootNumberProvider;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.util.Identifier;
 
@@ -21,11 +21,11 @@ public class MineralChance implements ModInitializer {
             if (STONE_LOOT_ID.equals(id)) {
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder();
 
-                poolBuilder.rolls(BinomialLootTableRange.create(1, lootChance)).with(ItemEntry.builder(Items.DIAMOND));
-                poolBuilder.rolls(BinomialLootTableRange.create(1, lootChance)).with(ItemEntry.builder(Items.REDSTONE));
-                poolBuilder.rolls(BinomialLootTableRange.create(1, lootChance)).with(ItemEntry.builder(Items.LAPIS_LAZULI));
-                poolBuilder.rolls(BinomialLootTableRange.create(1, lootChance)).with(ItemEntry.builder(Items.COAL));
-                poolBuilder.rolls(BinomialLootTableRange.create(1, lootChance)).with(ItemEntry.builder(Items.EMERALD));
+                poolBuilder.rolls(BinomialLootNumberProvider.create(1, lootChance)).with(ItemEntry.builder(Items.DIAMOND));
+                poolBuilder.rolls(BinomialLootNumberProvider.create(1, lootChance)).with(ItemEntry.builder(Items.REDSTONE));
+                poolBuilder.rolls(BinomialLootNumberProvider.create(1, lootChance)).with(ItemEntry.builder(Items.LAPIS_LAZULI));
+                poolBuilder.rolls(BinomialLootNumberProvider.create(1, lootChance)).with(ItemEntry.builder(Items.COAL));
+                poolBuilder.rolls(BinomialLootNumberProvider.create(1, lootChance)).with(ItemEntry.builder(Items.EMERALD));
 
 
                 supplier.pool(poolBuilder);
@@ -36,9 +36,9 @@ public class MineralChance implements ModInitializer {
             if (NETHERRACK_LOOT_ID.equals(id)) 
             {
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder();
-                poolBuilder.rolls(BinomialLootTableRange.create(1, lootChance)).with(ItemEntry.builder(Items.GOLD_NUGGET));
-                poolBuilder.rolls(BinomialLootTableRange.create(1, lootChance)).with(ItemEntry.builder(Items.QUARTZ));
-                poolBuilder.rolls(BinomialLootTableRange.create(1, lootChance)).with(ItemEntry.builder(Items.NETHERITE_SCRAP));
+                poolBuilder.rolls(BinomialLootNumberProvider.create(1, lootChance)).with(ItemEntry.builder(Items.GOLD_NUGGET));
+                poolBuilder.rolls(BinomialLootNumberProvider.create(1, lootChance)).with(ItemEntry.builder(Items.QUARTZ));
+                poolBuilder.rolls(BinomialLootNumberProvider.create(1, lootChance)).with(ItemEntry.builder(Items.NETHERITE_SCRAP));
 
                 supplier.pool(poolBuilder);
             }
