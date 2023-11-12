@@ -19,7 +19,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.testmod.TestMod"
+      "com.mineralchance.MineralChance"
     ]
   },
   "mixins": [
